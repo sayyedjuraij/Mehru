@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexyos — AI Feedback Reimagined</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ░░ LOADER ░░ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">NXS</div>
+      <div class="loader-bar"><span id="loader-fill"></span></div>
+      <div class="loader-pct" id="loader-pct">0%</div>
+    </div>
+  </div>
+
+  <!-- ░░ CURSOR ░░ -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ░░ THREE.JS CANVAS ░░ -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ░░ NAV ░░ -->
+  <nav id="navbar">
+    <div class="nav-logo">NEXYOS</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#features">System</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get Started</a>
+    <button class="nav-burger" id="navBurger">&#9776;</button>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">AI-Powered · QR-Based · Real-Time</div>
+      <h1 class="hero-title">
+        <span class="line">Feedback</span>
+        <span class="line accent">Reimagined</span>
+        <span class="line">by AI</span>
+      </h1>
+      <p class="hero-sub">Nexyos transforms customer voices into powerful Google Reviews — instantly, intelligently, automatically.</p>
+      <div class="hero-btns">
+        <a href="#features" class="btn-primary">Explore System</a>
+        <a href="#architecture" class="btn-ghost">View Architecture</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="98">0</span><span>%</span><div class="stat-label">AI Accuracy</div></div>
+        <div class="stat"><span class="stat-num" data-target="5">0</span><span>x</span><div class="stat-label">More Reviews</div></div>
+        <div class="stat"><span class="stat-num" data-target="300">0</span><span>+</span><div class="stat-label">Shops Live</div></div>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="qr-orb">
+        <div class="qr-grid" id="qrGrid"></div>
+        <div class="orb-ring r1"></div>
+        <div class="orb-ring r2"></div>
+        <div class="orb-ring r3"></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ░░ FEATURES / TECH STACK ░░ -->
+  <section id="features">
+    <div class="section-header">
+      <div class="section-tag">Tech Stack</div>
+      <h2>Built for <span class="accent">Scale</span></h2>
+      <p>Enterprise-grade architecture from frontend to cloud.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-card" data-tilt>
+        <div class="tech-icon">⚡</div>
+        <div class="tech-name">Angular</div>
+        <div class="tech-desc">Responsive SPA for mobile & desktop feedback flows</div>
+        <div class="tech-glow"></div>
+      </div>
+      <div class="tech-card" data-tilt>
+        <div class="tech-icon">☕</div>
+        <div class="tech-name">Spring Boot</div>
+        <div class="tech-desc">RESTful Java APIs for QR handling & dashboard data</div>
+        <div class="tech-glow"></div>
+      </div>
+      <div class="tech-card" data-tilt>
+        <div class="tech-icon">🧠</div>
+        <div class="tech-name">Python AI</div>
+        <div class="tech-desc">NLP microservice for review generation & sentiment</div>
+        <div class="tech-glow"></div>
+      </div>
+      <div class="tech-card" data-tilt>
+        <div class="tech-icon">🗄️</div>
+        <div class="tech-name">MSSQL</div>
+        <div class="tech-desc">Relational integrity across shops, QRs, responses</div>
+        <div class="tech-glow"></div>
+      </div>
+      <div class="tech-card" data-tilt>
+        <div class="tech-icon">☁️</div>
+        <div class="tech-name">AWS Cloud</div>
+        <div class="tech-desc">EC2, Lambda, RDS, S3 — production-ready infra</div>
+        <div class="tech-glow"></div>
+      </div>
+      <div class="tech-card" data-tilt>
+        <div class="tech-icon">💳</div>
+        <div class="tech-name">Razorpay</div>
+        <div class="tech-desc">Full payment & subscription lifecycle management</div>
+        <div class="tech-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ ARCHITECTURE ░░ -->
+  <section id="architecture">
+    <div class="section-header">
+      <div class="section-tag">System Design</div>
+      <h2>The <span class="accent">Architecture</span></h2>
+    </div>
+    <div class="arch-diagram">
+      <div class="arch-layer" data-layer="0">
+        <div class="arch-label">Customer</div>
+        <div class="arch-nodes">
+          <div class="arch-node">📱 QR Scan</div>
+          <div class="arch-node">📝 Feedback Form</div>
+          <div class="arch-node">⭐ Google Review</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer" data-layer="1">
+        <div class="arch-label">Frontend · Angular</div>
+        <div class="arch-nodes">
+          <div class="arch-node">Feedback UI</div>
+          <div class="arch-node">Owner Dashboard</div>
+          <div class="arch-node">Admin Panel</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer" data-layer="2">
+        <div class="arch-label">Backend · Spring Boot</div>
+        <div class="arch-nodes">
+          <div class="arch-node">QR API</div>
+          <div class="arch-node">Auth / RBAC</div>
+          <div class="arch-node">Analytics API</div>
+          <div class="arch-node">Razorpay Webhook</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer" data-layer="3">
+        <div class="arch-label">AI Engine · Python</div>
+        <div class="arch-nodes">
+          <div class="arch-node">NLP Processor</div>
+          <div class="arch-node">Review Generator</div>
+          <div class="arch-node">Sentiment Analysis</div>
+        </div>
+      </div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-layer" data-layer="4">
+        <div class="arch-label">Data · MSSQL on AWS RDS</div>
+        <div class="arch-nodes">
+          <div class="arch-node">Shops</div>
+          <div class="arch-node">QR_Mappings</div>
+          <div class="arch-node">Feedback_Responses</div>
+          <div class="arch-node">Subscriptions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ MODULES ░░ -->
+  <section id="modules">
+    <div class="section-header">
+      <div class="section-tag">Core Modules</div>
+      <h2>Five <span class="accent">Powerhouses</span></h2>
+    </div>
+    <div class="modules-list">
+
+      <div class="module-item" data-module="A">
+        <div class="module-letter">A</div>
+        <div class="module-content">
+          <h3>Unique QR Code System</h3>
+          <p>Shop-specific QR codes securely mapped to Shop IDs in MSSQL. Mobile-optimized — no app required. Instant, encrypted access to dynamic feedback forms.</p>
+          <ul>
+            <li>Unique generation per shop</li>
+            <li>Secure DB mapping</li>
+            <li>Mobile-first landing</li>
+          </ul>
+        </div>
+        <div class="module-visual">
+          <div class="mini-qr" id="miniQr"></div>
+        </div>
+      </div>
+
+      <div class="module-item" data-module="B">
+        <div class="module-letter">B</div>
+        <div class="module-content">
+          <h3>AI Reviewer Flow</h3>
+          <p>5-step pipeline: dynamic form → Python NLP → structured review generation → clipboard copy → Google Review redirect. Zero friction for the customer.</p>
+          <ul>
+            <li>Dynamic questionnaire per shop</li>
+            <li>AI-generated natural review text</li>
+            <li>One-tap Google Review submit</li>
+          </ul>
+        </div>
+        <div class="module-visual ai-visual">
+          <div class="ai-pulse"></div>
+          <span>AI</span>
+        </div>
+      </div>
+
+      <div class="module-item" data-module="C">
+        <div class="module-letter">C</div>
+        <div class="module-content">
+          <h3>Shop Owner Dashboard</h3>
+          <p>Full analytics suite: satisfaction scores, sentiment breakdown, trend charts, AI-driven insights. Owners manage their own questionnaires in real time.</p>
+          <ul>
+            <li>Sentiment: Positive / Neutral / Negative</li>
+            <li>Trend charts over time</li>
+            <li>AI common feedback insights</li>
+          </ul>
+        </div>
+        <div class="module-visual dash-visual">
+          <div class="bar b1"></div>
+          <div class="bar b2"></div>
+          <div class="bar b3"></div>
+          <div class="bar b4"></div>
+        </div>
+      </div>
+
+      <div class="module-item" data-module="D">
+        <div class="module-letter">D</div>
+        <div class="module-content">
+          <h3>Super Admin Panel</h3>
+          <p>Global control: shop accounts, QR mappings, questionnaire controls, subscription monitoring, and usage analytics across all registered shops.</p>
+          <ul>
+            <li>RBAC: Super Admin vs Shop Owner</li>
+            <li>Subscription engine</li>
+            <li>Cross-shop usage analytics</li>
+          </ul>
+        </div>
+        <div class="module-visual admin-visual">
+          <div class="shield">🛡</div>
+        </div>
+      </div>
+
+      <div class="module-item" data-module="E">
+        <div class="module-letter">E</div>
+        <div class="module-content">
+          <h3>Payments & Security</h3>
+          <p>Full Razorpay integration for subscription purchases. RBAC authentication, end-to-end API encryption, and industry-standard data storage security.</p>
+          <ul>
+            <li>Razorpay webhook handling</li>
+            <li>JWT + RBAC auth</li>
+            <li>AES-256 encryption</li>
+          </ul>
+        </div>
+        <div class="module-visual pay-visual">
+          <div class="lock-icon">🔐</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ░░ DATA SCHEMA ░░ -->
+  <section id="schema">
+    <div class="section-header">
+      <div class="section-tag">Database</div>
+      <h2>Data <span class="accent">Schema</span></h2>
+    </div>
+    <div class="schema-grid">
+      <div class="schema-table">
+        <div class="table-header">Shops</div>
+        <div class="table-row"><span class="col-pk">PK</span> shop_id</div>
+        <div class="table-row">shop_name</div>
+        <div class="table-row">google_review_url</div>
+        <div class="table-row">subscription_status</div>
+        <div class="table-row">created_at</div>
+      </div>
+      <div class="schema-table">
+        <div class="table-header">QR_Mappings</div>
+        <div class="table-row"><span class="col-pk">PK</span> qr_id</div>
+        <div class="table-row"><span class="col-fk">FK</span> shop_id</div>
+        <div class="table-row">qr_code_url</div>
+        <div class="table-row">is_active</div>
+        <div class="table-row">created_at</div>
+      </div>
+      <div class="schema-table">
+        <div class="table-header">Questionnaires</div>
+        <div class="table-row"><span class="col-pk">PK</span> q_id</div>
+        <div class="table-row"><span class="col-fk">FK</span> shop_id</div>
+        <div class="table-row">question_text</div>
+        <div class="table-row">question_type</div>
+        <div class="table-row">display_order</div>
+      </div>
+      <div class="schema-table">
+        <div class="table-header">Feedback_Responses</div>
+        <div class="table-row"><span class="col-pk">PK</span> response_id</div>
+        <div class="table-row"><span class="col-fk">FK</span> shop_id</div>
+        <div class="table-row">raw_answers (JSON)</div>
+        <div class="table-row">ai_generated_review</div>
+        <div class="table-row">sentiment_score</div>
+      </div>
+      <div class="schema-table">
+        <div class="table-header">Subscriptions</div>
+        <div class="table-row"><span class="col-pk">PK</span> sub_id</div>
+        <div class="table-row"><span class="col-fk">FK</span> shop_id</div>
+        <div class="table-row">razorpay_payment_id</div>
+        <div class="table-row">plan_type</div>
+        <div class="table-row">expiry_date</div>
+      </div>
+      <div class="schema-table">
+        <div class="table-header">Users</div>
+        <div class="table-row"><span class="col-pk">PK</span> user_id</div>
+        <div class="table-row"><span class="col-fk">FK</span> shop_id</div>
+        <div class="table-row">email</div>
+        <div class="table-row">role (ADMIN/OWNER)</div>
+        <div class="table-row">password_hash</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ DELIVERABLES ░░ -->
+  <section id="deliverables">
+    <div class="section-header">
+      <div class="section-tag">Deliverables</div>
+      <h2>What Gets <span class="accent">Built</span></h2>
+    </div>
+    <div class="deliverables-grid">
+      <div class="deliv-card">
+        <div class="deliv-num">01</div>
+        <h4>Database DDL</h4>
+        <p>SQL scripts for all MSSQL tables with relational integrity</p>
+      </div>
+      <div class="deliv-card">
+        <div class="deliv-num">02</div>
+        <h4>Java Backend</h4>
+        <p>Spring Boot REST APIs — QR, feedback, dashboard, auth</p>
+      </div>
+      <div class="deliv-card">
+        <div class="deliv-num">03</div>
+        <h4>Python AI Script</h4>
+        <p>Prompt-engineering microservice for review generation</p>
+      </div>
+      <div class="deliv-card">
+        <div class="deliv-num">04</div>
+        <h4>Angular Components</h4>
+        <p>Feedback form, Shop Dashboard with charts, Admin Panel</p>
+      </div>
+      <div class="deliv-card">
+        <div class="deliv-num">05</div>
+        <h4>Razorpay Webhook</h4>
+        <p>Payment handling & subscription status auto-update</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="section-tag">Get Started</div>
+      <h2>Ready to <span class="accent">Launch?</span></h2>
+      <p>Deploy Nexyos for your business and let AI do the heavy lifting on reviews.</p>
+      <a href="mailto:hello@nexyos.com" class="btn-primary btn-xl">Contact Nexyos →</a>
+    </div>
+    <div class="contact-particles" id="contactParticles"></div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer>
+    <div class="footer-logo">NEXYOS</div>
+    <div class="footer-copy">© 2025 Nexyos. QR-Based AI Feedback System.</div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Docs</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
